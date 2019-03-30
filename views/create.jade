@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    .container
+        h2.page-header Blog
+        p Please Create Blog
+        form(method='post' action='/users/login')
+           .form-group
+            label(for='title') Title:
+            input.form-control(type='text', name='title')
+            label(for='comment') Descripotion:
+            textarea#comment.form-control(rows='20', col='10')
+           input.btn.btn-primary(type='submit',name='post',value='Post')

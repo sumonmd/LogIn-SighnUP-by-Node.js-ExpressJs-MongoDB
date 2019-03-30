@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    .container
+        h2.page-header Register
+        p Please Register
+        if errors
+         each error, i in errors
+          li.alert.alert-danger #{error.msg}
+          each error
+        form(method='post' action='/users/register')
+           .form-group
+            label Name
+            input.form-control(name='name',type='text',placeholder='Enter Your Name')
+           .form-group
+            label Username
+            input.form-control(name='username',type='text',placeholder='Enter Username')
+           .form-group
+            label Email
+            input.form-control(name='email',type='email',placeholder='Enter Email')
+           .form-group
+            label Password
+            input.form-control(name='password',type='password',placeholder='Enter Password')
+           .form-group
+            label Confirm Password
+            input.form-control(name='repassword',type='password',placeholder='Retype Password')
+           .form-group
+            label Select Author
+            select(style='margin-left:10px' name='select')
+                option(value='volvo') Admin
+                option(value='saab') User
+                option(value='vw') Agent
+           input.btn.btn-primary(type='submit',name='submit',value='Register')
